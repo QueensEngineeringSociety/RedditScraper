@@ -14,6 +14,8 @@ exports.findNewPosts = function () {
                 }).catch(function (err) {
                     return rej(err);
                 });
+            } else {
+                return rej(error);
             }
         })
     });

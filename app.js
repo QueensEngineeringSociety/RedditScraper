@@ -6,10 +6,17 @@ const logger = require('./reddit/postLog.js');
 
 app.listen(port);
 console.log('Listening on localhost/' + port);
-reddit.findNewPosts().then(function (posts) {
-    //email
-    //write to file newly sent posts
-    logger.logPosts(posts);
-}).catch(function (err) {
-    console.log("ERR: " + err);
-});
+
+let interval = 20 * 1000;//12 * 60 * 60 * 1000; //12 hours
+setInterval(function () {
+    console.log("start");
+    reddit.findNewPosts().then(function (posts) {
+        //email
+        //write to file newly sent posts
+        logger.logPosts(posts).then(function () {
+            console.log("at end");
+        });
+    }).catch(function (err) {
+        console.log("ERR: " + err);
+    });
+}, interval);

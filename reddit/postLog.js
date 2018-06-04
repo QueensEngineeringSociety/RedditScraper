@@ -19,28 +19,42 @@ exports.logPosts = function (newLinks) {
         exports.read().then(function (currentLinks) {
             //get last 5 links between new and old links
             let currentLinksArray = currentLinks.split('\n');
-            newLinks.concat(currentLinksArray);
+            newLinks = newLinks.concat(currentLinksArray);
             if (newLinks.length > 5) {
-                newLinks.splice(5, newLinks.length - 1);
+                newLinks.splice(5, newLinks.length);
             }
-            write(newLinks);
+            write(newLinks).then(function () {
+                return res();
+            }).catch(function () {
+                console.log('ERROR WRITING');
+                return rej();
+            });
         });
     });
 };
 
 function write(content) {
-    let postPermalinks = "";
-    for (let i = 0; i < content.length; ++i) {
-        postPermalinks += content[i];
-        postPermalinks += '\n';
-    }
-    writePostPermalink(postPermalinks);
+    return new Promise(function (res) {
+        let postPermalinks = "";
+        for (let i = 0; i < content.length; ++i) {
+            postPermalinks += content[i];
+            postPermalinks += '\n';
+        }
+        writePostPermalink(postPermalinks).then(function () {
+            return res();
+        }).catch(function () {
+            console.log("ERROR WRITING FILE");
+        });
+    });
 }
 
 function writePostPermalink(content) {
-    fs.writeFile(file, content, function (err) {
-        if (err) {
-            console.log(err);
-        }
+    return new Promise(function (res, rej) {
+        fs.writeFile(file, content, function (err) {
+            if (err) {
+                return rej(err);
+            }
+            return res();
+        });
     });
 }
