@@ -17,7 +17,7 @@ let mailOptions = {
     from: properties.get('email_user'),
     to: "president@engsoc.queensu.ca",
     subject: "Queen's First Year Engineering Questions",
-    text: "Here are links to new posts that relate to first year engineering:\n\n"
+    text: "Here are links to new posts that MAY relate to first year engineering:\n\n"
 };
 
 exports.sendMail = function (content) {

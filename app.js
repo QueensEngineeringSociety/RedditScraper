@@ -8,34 +8,30 @@ const mail = require("./email.js");
 app.listen(port);
 console.log('Listening on localhost/' + port);
 
-let interval = 20 * 1000;//12 * 60 * 60 * 1000; //12 hours
-//setInterval(function () {
-// console.log("start");
-reddit.findNewPosts().then(function (posts) {
-    if (posts.length > 0) {
-        let links = createFullLinksString(posts);
-        mail.sendMail(links).then(function () {
-            logger.logPosts(posts).then(function () {
-                console.log("posts emailed and logged");
-            }).catch(function () {
-                console.log("ERROR WRITING POSTS TO FILE");
+let interval = 12 * 60 * 60 * 1000; //12 hours
+setInterval(function () {
+    reddit.findNewPosts().then(function (newPostInfo) {
+        if (newPostInfo[0].length > 0) {
+            let emailContent = createEmailContent(newPostInfo[0], newPostInfo[1]);
+            mail.sendMail(emailContent).then(function () {
+                logger.logPosts(newPostInfo[0]).then(function () {
+                }).catch(function () {
+                    console.log("ERROR WRITING POSTS TO FILE");
+                });
+            }).catch(function (err) {
+                console.log("ERROR SENDING EMAIL: " + err);
             });
-        }).catch(function (err) {
-            console.log("ERROR SENDING EMAIL: " + err);
-        });
-    } else {
-        console.log("No new posts");
-    }
-}).catch(function (err) {
-    console.log("ERR: " + err);
-});
+        }
+    }).catch(function (err) {
+        console.log("ERR: " + err);
+    });
+}, interval);
 
-//}, interval);
-
-function createFullLinksString(partialLinks) {
-    let links = "";
+function createEmailContent(partialLinks, titles) {
+    let content = "";
     for (let i = 0; i < partialLinks.length; ++i) {
-        links += "https://reddit.com" + partialLinks[i] + '\n';
+        content += titles[i] + '\n';
+        content += "https://reddit.com" + partialLinks[i] + "\n\n";
     }
-    return links;
+    return content;
 }

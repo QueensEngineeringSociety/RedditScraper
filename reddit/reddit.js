@@ -9,8 +9,8 @@ exports.findNewPosts = function () {
             json: true
         }, function (error, response, body) {
             if (!error && response.statusCode === 200) {
-                getNewPosts(body).then(function (newPosts) {
-                    return res(newPosts);
+                getNewPosts(body).then(function (newPostInfo) {
+                    return res(newPostInfo);
                 }).catch(function (err) {
                     return rej(err);
                 });
@@ -28,20 +28,34 @@ function getNewPosts(body) {
             let postData = body['data'];
             let posts = postData['children'];
             let newPostPermalinks = [];
+            let newPostTitles = [];
             for (let i = 0; i < posts.length; ++i) {
                 let permalink = ((posts[i])['data'])['permalink'];
-                if (oldLinksArray.indexOf(permalink) > -1) {
-                    //permalink in array - in file, so have already scraped this post. Therefore,
-                    //any later posts are in file and have been scraped, so stop here
-                    break;
-                } else {
-                    newPostPermalinks.push(permalink);
+                let title = ((posts[i])['data'])['title'];
+                let text = ((posts[i])['data'])['selftext'];
+                if (isFirstYearEngPost(title, text)) {
+                    if (oldLinksArray.indexOf(permalink) > -1) {
+                        //permalink in array - in file, so have already scraped this post. Therefore,
+                        //any later posts are in file and have been scraped, so stop here
+                        break;
+                    } else {
+                        newPostPermalinks.push(permalink);
+                        newPostTitles.push(title);
+                    }
                 }
             }
-            return res(newPostPermalinks);
+            let result = [newPostPermalinks, newPostTitles];
+            return res(result);
         }).catch(function (err) {
             console.log("ERROR READING PREVIOUS POSTS: " + err);
             return rej(err);
         });
     });
+}
+
+//TODO make this smarter
+function isFirstYearEngPost(postTitle, postText) {
+    postText = postText.toLowerCase();
+    postTitle = postTitle.toLowerCase();
+    return postTitle.includes("first year") || postTitle.includes('eng"') || postText.includes("first year") || postText.includes("eng");
 }
