@@ -47,7 +47,6 @@ function getNewPosts(body) {
             let result = [newPostPermalinks, newPostTitles];
             return res(result);
         }).catch(function (err) {
-            console.log("ERROR READING PREVIOUS POSTS: " + err);
             return rej(err);
         });
     });

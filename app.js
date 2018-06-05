@@ -3,6 +3,7 @@ const app = express();
 const reddit = require('./reddit/reddit.js');
 const port = process.env.PORT || 8080;
 const logger = require('./reddit/postLog.js');
+const error = require("./errorLogger.js");
 const mail = require("./email.js");
 
 app.listen(port);
@@ -16,14 +17,19 @@ setInterval(function () {
             mail.sendMail(emailContent).then(function () {
                 logger.logPosts(newPostInfo[0]).then(function () {
                 }).catch(function () {
-                    console.log("ERROR WRITING POSTS TO FILE");
+                    error.log("ERROR WRITING POSTS TO FILE");
                 });
             }).catch(function (err) {
-                console.log("ERROR SENDING EMAIL: " + err);
+                console.log("err");
+                error.log("ERROR SENDING EMAIL: " + err).then(function(){
+
+                }).catch(function(err){
+
+                });
             });
         }
     }).catch(function (err) {
-        console.log("ERR: " + err);
+        error.log("ERR: " + err);
     });
 }, interval);
 
