@@ -15,7 +15,7 @@ let transport = nodemailer.createTransport({
 
 let mailOptions = {
     from: properties.get('email_user'),
-    to: "president@engsoc.queensu.ca",
+    to: "firstyear@engsoc.queensu.ca",
     subject: "Queen's First Year Engineering Questions",
     text: "Here are links to new posts that MAY relate to first year engineering:\n\n"
 };

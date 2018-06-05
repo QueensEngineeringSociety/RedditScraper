@@ -4,8 +4,9 @@
     <list default="true" id="5637649b-25d0-4078-a89c-e77e2f8db8d1" name="Default" comment="">
       <change afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/errorLogger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email.js" beforeDir="false" afterPath="$PROJECT_DIR$/email.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lastPost.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lastPost.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reddit/reddit.js" beforeDir="false" afterPath="$PROJECT_DIR$/reddit/reddit.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,8 +24,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            <state relative-caret-position="442">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -33,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/email.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -64,8 +65,8 @@
       <file leaf-file-name="errorLogger.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/errorLogger.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+            <state relative-caret-position="374">
+              <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -95,10 +96,10 @@
         <option value="$PROJECT_DIR$/reddit/reddit_secrets.ini" />
         <option value="$PROJECT_DIR$/reddit/postLog.js" />
         <option value="$PROJECT_DIR$/secrets.ini" />
+        <option value="$PROJECT_DIR$/reddit/reddit.js" />
         <option value="$PROJECT_DIR$/lastPost.txt" />
         <option value="$PROJECT_DIR$/errorLogger.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/reddit/reddit.js" />
         <option value="$PROJECT_DIR$/email.js" />
       </list>
     </option>
@@ -293,12 +294,12 @@
       <workItem from="1528129296669" duration="3749000" />
       <workItem from="1528147324563" duration="707000" />
       <workItem from="1528151472280" duration="5262000" />
-      <workItem from="1528204815939" duration="5316000" />
+      <workItem from="1528204815939" duration="5694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19436000" />
+    <option name="totallyTimeSpent" value="19814000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-5" width="1936" height="1056" extended-state="6" />
@@ -479,20 +480,6 @@
     <entry file="file://$PROJECT_DIR$/lastPost.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/errorLogger.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/errorLog.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -503,10 +490,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/errorLogger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/email.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
         </state>
       </provider>
     </entry>
