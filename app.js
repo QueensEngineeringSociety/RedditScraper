@@ -9,7 +9,7 @@ const mail = require("./email.js");
 app.listen(port);
 console.log('Listening on localhost/' + port);
 
-let interval = 10000;//12 * 60 * 60 * 1000; //12 hours
+let interval = 12 * 60 * 60 * 1000; //12 hours
 setInterval(function () {
     reddit.findNewPosts().then(function (newPostInfo) {
         if (newPostInfo[0].length > 0) {
